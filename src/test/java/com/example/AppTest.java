@@ -9,4 +9,9 @@ class AppTest {
     void greetShouldIncludeName() {
         assertEquals("Hello World", App.greet("World"));
     }
+    boolean hasSecret = SecretUser.hasSecret();
+    @Test
+    void hasSecretShouldReturnTrue() {
+        assertTrue(hasSecret);
+    }
 }
