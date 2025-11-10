@@ -22,3 +22,9 @@ jobs:
 
       - name: Build and test with Maven
         run: mvn -B clean verify
+
+      - name: Cache Maven repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: maven-${{ hashFiles('**/pom.xml') }}
