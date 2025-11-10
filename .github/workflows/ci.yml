@@ -36,3 +36,15 @@ jobs:
         run: mvn -B clean verify
         env:
           APP_SECRET_TOKEN: ${{ secrets.APP_SECRET_TOKEN }}
+
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-jar-${{ matrix.java-version }}
+          path: target/demo-ci-project-1.0-SNAPSHOT.jar
+
+      - name: Upload test reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports-${{ matrix.java-version }}
+          path: target/surefire-reports/
